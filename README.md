@@ -26,14 +26,14 @@ Below examples can be done in one pass by using all processors together.  The ex
 ```text
 $ printf "stats\nstats slabs\nstats items\nstats settings\n" | \
       netcat 127.0.0.1 11211 > /tmp/mc_stat_file
-$ ./mcinspector --stats-file=/tmp/mc_stat_file --processor=item-aggregator
+$ sudo ./mcinspector --stats-file=/tmp/mc_stat_file --processor=item-aggregator
 ```
 
 ### Clean expired objects
 ```text
 $ printf "stats\nstats slabs\nstats items\nstats settings\n" | \
        netcat 127.0.0.1 11211 > /tmp/mc_stat_file
-$ ./mcinspector \
+$ sudo ./mcinspector \
       --stats-file=/tmp/mc_stat_file \
       --processor=expired-dumper \
       --expired-dump-file=/tmp/mc_expired_list
@@ -44,11 +44,11 @@ $ ./mccleaner \
       --sleep-interval=10
 ```
 ### Dump all keys in a category
-The example is to dump keys in 'user_info' category which has size greater than 200 bytes.
+The example is to dump keys in 'user_info' category which has size less than 200 bytes.
 ```text
 $ printf "stats\nstats slabs\nstats items\nstats settings\n" | \
        netcat 127.0.0.1 11211 > /tmp/mc_stat_file
-$ ./mcinspector \
+$ sudo ./mcinspector \
       --stats-file=/tmp/mc_stat_file \
       --processor=item-dumper \
       --category-to-dump=user_info \
