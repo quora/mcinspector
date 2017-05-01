@@ -95,7 +95,7 @@ void ItemDumper::process_item(unsigned int cur_time,
                               unsigned int nbytes,
                               int slab_id,
                               uint64_t cas) {
-  if (categories_.count(category)
+  if ((categories_.empty() || categories_.count(category))
       && cas >= cas_min_
       && cas <= cas_max_
       && key.size() + nbytes >= size_min_

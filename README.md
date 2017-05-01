@@ -9,7 +9,8 @@ MCInspector is a lightweight tool to get a summary of objects or dump the keys f
 
 ## Requirements and building
 
-The tool is designed to work on Linux only. It requires the kernel > 3.2 and the glibc > 2.15
+The tool is designed to work on Linux only. The *no_inline_ascii_resp* option should not be specified on the Memcached process. It requires the kernel > 3.2 and the glibc > 2.15 to compile.
+
 
 ```text
 $ git clone https://github.com/quora/mcinspector.git
@@ -18,7 +19,7 @@ $ make
 ```
 
 ## Usage
-This tool has been tested on **Memcached-1.4.14**, **Memcached-1.4.22** and **Memcached-1.4.32**.
+This tool has been tested on **Memcached-1.4.14**, **Memcached-1.4.22** and **Memcached-1.4.36**.
 
 Below examples can be done in one pass by using all processors together.  The examples also assume it uses the default ':' char as keyspace delimiter. Full list of arguments can be seen by running the binaries with no argument.
 
@@ -58,7 +59,7 @@ $ sudo ./mcinspector \
 
 
 ## Performance
-In our production machines, which run on Intel Xeon E5-2670 CPUs, it is able to detect 150 million objects from a 25GB Memcached process in 98 seconds using a single core. The number of detected keys is about 99.9% of the number shown in Memcached's 'STATS' output.
+In our production machines, which run on Intel Xeon E5-2670 CPUs, it is able to detect 130 million objects from a 23GB Memcached process in 85 seconds using a single core. The number of detected keys is about 99.9% of the number shown in Memcached's 'STATS' output.
 
 
 ## License
