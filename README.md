@@ -31,6 +31,7 @@ $ sudo ./mcinspector --stats-file=/tmp/mc_stat_file --processor=item-aggregator
 ```
 
 ### Clean expired objects
+Though recent Memcached versions have built-in feature of cleaning up expired objects, this is an alternative way and can be useful if you are running an old version of Memcached.
 ```text
 $ printf "stats\nstats slabs\nstats items\nstats settings\n" | \
        netcat 127.0.0.1 11211 > /tmp/mc_stat_file
