@@ -19,7 +19,7 @@ $ make
 ```
 
 ## Usage
-This tool has been tested on **Memcached-1.4.14**, **Memcached-1.4.22** and **Memcached-1.4.36**.
+This tool has been tested on **Memcached-1.4.14**, **Memcached-1.4.22** and **Memcached-1.4.36**. It also works on **Memcached-1.5.2** but only if the Memcached is started with *-o inline_ascii_resp* option.
 
 Below examples can be done in one pass by using all processors together.  The examples also assume it uses the default ':' char as keyspace delimiter. Full list of arguments can be seen by running the binaries with no argument.
 
