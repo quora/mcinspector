@@ -449,6 +449,7 @@ int main(int argc, char *argv[]) {
           category_name = detected_key.substr(0, detected_key.find(category_delimiter));
         }
         if (probed->time > 365 * 86400 * 10 || probed->time >= cur_time + 50
+            || (probed->it_flags & 1) == 0   // ITEM_LINKED ( == 0x1) must be set
             || probed->nbytes + probed->nkey > slabs_info[ITEM_clsid(probed)].unit_size) {
           // since the item came from raw memory scan, there might be some corrupted entries.
           // so some sanity checks are applied to filter out them
